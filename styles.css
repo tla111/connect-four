@@ -1,0 +1,63 @@
+:root {
+  box-sizing: border-box;
+}
+
+.container {
+  height: 650px;
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+}
+
+.holdPieces {
+  height: 500px;
+  width: 80px;
+  border: 1px solid black;
+  margin-top: 50px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gameBoard {
+  display: flex;
+  margin: 50px auto;
+}
+
+.column {
+  height: 500px;
+  width: 75px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.gamePieces {
+  border-radius: 50%;
+  height: 20px;
+  width: 70px;
+}
+
+.gamePieces:nth-child(odd){
+  background-color: black;
+}
+
+.gamePieces:nth-child(even){
+  background-color: red;
+}
+
+.square {
+  border: 1px dashed black;
+  background-color: #FFFF00;
+  height: 200px;
+  width: 100%;
+  display: flex;
+}
+
+.circle {
+  background-color: white;
+  border: 1px solid #003CB3;
+  border-radius: 50%;
+  flex-grow: 1;
+}

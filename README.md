@@ -5,7 +5,7 @@ Development Plan
 
   A. The color of the board will be yellow with a white background to depict a perpendicular playing table
 
-    - Design the gameboard with an array and have it appear on the screen with nested for loops
+    - Design the gameboard with divs likes the Tower of Hanoi
 
 2. Have a column not attached to the gameboard to hold the 42 game pieces (21 Red/21 Black)
 

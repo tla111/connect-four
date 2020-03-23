@@ -1,0 +1,84 @@
+:root {
+  box-sizing: border-box;
+}
+
+.gameBoard {
+  display: flex;
+  /* border: 1px solid black; */
+}
+
+.container {
+  margin: 5% auto;
+  width: 500px;
+  height: 500px;
+}
+
+.cell, .row, .hold, .blank {
+  display: inline-block;
+  width: 50px; 
+  height: 50px;
+  padding: 5px;
+  background-color: #FFFF00;
+}
+
+.row {
+  border: 1px solid black;
+}
+
+.circle {
+  width: 45px;
+  height: 45px;
+  border: 3px solid #003CB3;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.fill {
+  background-color: red;
+}
+
+.hold {
+  border: 1px solid black;
+}
+
+.blank {
+  background-color: white;
+}
+
+.move {
+  margin-left: 10px;
+}
+
+.shadowOne {
+  box-shadow: -25px 10px 30px gray;
+}
+
+.shadowTwo {
+  box-shadow: 30px 10px 30px gray;
+}
+
+.gameHolder {
+  border: 1px solid black;
+  height: 480px;
+  width: 100px;
+  margin-top: 4%;
+  margin-left: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.black, .red {
+  height: 20px;
+  width: 70px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.black {
+  background-color: black;
+}
+
+.red {
+  background-color: red;
+}

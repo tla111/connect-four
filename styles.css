@@ -3,28 +3,31 @@
 }
 
 .contain {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 600px;
   width: 100%;
   display: flex;
 }
 
 .section {
-  border: 1px solid red;
   flex-grow: 1;
   display: flex;
   justify-content: center;
 }
 
 .board {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .holder {
   border: 1px solid black;
-  margin-top: 15%;
-  height: 510px;
+  margin-top: 5%;
+  height: 530px;
   width: 75px;
   display: flex;
   flex-direction: column;
@@ -32,8 +35,8 @@
 }
 
 .gamePiece {
-  border: 2px solid white;
-  border-radius: 25%;
+  border: 3px solid white;
+  border-radius: 30%;
   height: 20px;
   width: 50px;
 }
@@ -44,4 +47,58 @@
 
 .red .gamePiece{
   background-color: red;
+}
+
+.gameBoard {
+  border: 1px solid black;
+  height: 400px;
+  width: 65%;
+  display: flex;
+}
+
+.legs {
+  height: 50px;
+  width: 45%;
+  display: flex;
+}
+
+.column {
+  border: 1px solid black;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.square {
+  border: 1px dashed blue;
+  background-color: #FFFF00;
+  flex-grow: 1;
+  display: flex;
+}
+
+.circle {
+  border: 1px solid blue;
+  border-radius: 50%;
+  background-color: white;
+  flex-grow: 1;
+}
+
+.legSpace {
+  flex-grow: 1;
+  display: flex;
+}
+
+.blue {
+  border-left: 1px solid blue;
+  border-right: 1px solid blue;
+  border-bottom: 1px solid blue;
+  background-color: #FFFF00;
+}
+
+.shadowOne {
+  box-shadow: -10px 10px 40px black;
+} 
+
+.shadow {
+  box-shadow: 10px 10px 40px black;
 }

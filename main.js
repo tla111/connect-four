@@ -7,25 +7,22 @@ let columnMove;
 let gamePiece;
 let counter;
 
-function moveToColumnOne(event){
-  if(mode === "pickUp"){
-    columnMove = event.currentTarget;
-    gamePiece = columnMove.firstElementChild;
-    mode = "drop";
-    return mode, columnMove, gamePiece;
-  }
-  if(mode === "drop"){
-    let selectedColumn = event.currentTarget;
-    selectedColumn = selectedColumn.lastElementChild;
-    selectedColumn = selectedColumn.lastElementChild;
-    selectedColumn = selectedColumn.className = "circle fill"
-    counter++
-  }
-}
-
-
-
-
+// function moveToColumnOne(event){
+//   if(mode === "pickUp"){
+//     columnMove = event.currentTarget;
+//     gamePiece = columnMove.firstElementChild;
+//     mode = "drop";
+//     return mode, columnMove, gamePiece;
+//   }
+//   if(mode === "drop"){
+//     let selectedColumn = event.currentTarget;
+//     if(selectedColumn.childElementCount === 6){
+//       selectedColumn = selectedColumn.lastElementChild;
+//       selectedColumn = selectedColumn.className = " square fill";
+//       mode = "pickUp";
+//     }
+//   }
+// }
 
 player1.addEventListener("click", moveToColumnOne);
 player2.addEventListener("click", moveToColumnOne);

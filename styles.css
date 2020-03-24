@@ -54,7 +54,7 @@
 } */
 
 .playerTurn {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   height: 600px;
   width: 50px;
   display: flex;
@@ -63,7 +63,6 @@
 }
 
 .letters {
-  color: white;
   font-size: 40px;
 }
 
@@ -74,10 +73,20 @@
 
 .switch2 {
   border: 1px solid black;
-  background: red;
+  background-color: #FF3333;
 }
 
-.disk {
+.diskBlack{
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 95px;
+  width: 90px;
+  margin: 1px;
+}
+
+.diskRed {
+  background-color: #FF3333;
   border: 1px solid black;
   border-radius: 50%;
   height: 95px;

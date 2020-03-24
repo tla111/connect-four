@@ -28,32 +28,33 @@
   border: 1px solid black;
   margin-top: 5%;
   height: 530px;
-  width: 75px;
+  width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.gamePiece {
-  border: 3px solid white;
-  border-radius: 30%;
-  height: 20px;
+.gamePiece1 {
+  border: 3px solid black;
+  background-color: black;
+  border-radius: 50%;
+  height: 50px;
   width: 50px;
 }
 
-.black .gamePiece {
-  background-color: black;
-}
-
-.red .gamePiece{
+.gamePiece2 {
+  border: 3px solid red;
   background-color: red;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
 
 .gameBoard {
   border: 1px solid black;
   background-color: #FFFF00;
-  height: 400px;
-  width: 60%;
+  height: 345px;
+  width: 550px;
   display: flex;
 }
 
@@ -65,17 +66,10 @@
 
 .column {
   border: 1px solid black;
-  flex-grow: 1;
+  width: 80px;
   display: flex;
-  flex-direction: column;
-}
-
-.square {
-  border: 2px dotted blue;
-  border-radius: 50%;
-  background-color: white;
-  flex-grow: 1;
-  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 
 .legSpace {

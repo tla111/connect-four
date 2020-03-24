@@ -15,7 +15,7 @@
 .section {
   /* border: 1px solid black; */
   height: 690px;
-  flex-grow: 1.5;
+  width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@
 .main{
   /* border: 1px solid black; */
   height: 690px;
-  flex-grow: 1;
+  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +54,7 @@
 } */
 
 .playerTurn {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 600px;
   width: 50px;
   display: flex;
@@ -63,12 +63,13 @@
 }
 
 .letters {
+  color: white;
   font-size: 40px;
 }
 
 .switch1 {
   border: 1px solid black;
-  background: black;
+  background-color: black;
 }
 
 .switch2 {
@@ -92,4 +93,8 @@
   height: 95px;
   width: 90px;
   margin: 1px;
+}
+
+.blank {
+  background-color: white;
 }

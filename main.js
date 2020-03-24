@@ -8,6 +8,8 @@ let gameModel = [
   [0, 0, 0, 0, 0, 0, 0]
 ]
 
+// alert("Click Anywhere in the Gameboard to Start");
+
 let turn = "player1";
 let playerOne = document.querySelector("#p1");
 let playerTwo = document.querySelector("#p2");

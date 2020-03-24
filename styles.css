@@ -15,7 +15,7 @@
 .section {
   /* border: 1px solid black; */
   height: 690px;
-  width: 20%;
+  width: 15%;
   display: flex;
   justify-content: center;
   align-items: center;

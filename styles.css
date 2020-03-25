@@ -3,7 +3,7 @@
 }
 
 .container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 100%;
   height: 700px;
   margin: 0 auto;
@@ -23,9 +23,10 @@
 
 .main{
   /* border: 1px solid black; */
-  height: 690px;
-  width: 60%;
+  height: 700px;
+  width: 70%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -60,6 +61,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 80px;
 }
 
 .letters {
@@ -97,4 +99,8 @@
 
 .blank {
   background-color: white;
+}
+
+h3 {
+  font-size: 26px;
 }

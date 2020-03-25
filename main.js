@@ -43,6 +43,7 @@ function insertDisk(event) {
     selectTower.appendChild(piece);
     turn = "player1";
   }
+  tieGame();
 }
 
 tower1.addEventListener("click", insertDisk);
@@ -52,3 +53,17 @@ tower4.addEventListener("click", insertDisk);
 tower5.addEventListener("click", insertDisk);
 tower6.addEventListener("click", insertDisk);
 tower7.addEventListener("click", insertDisk);
+
+function tieGame(){
+  if((tower1.childElementCount === 6) && 
+    (tower2.childElementCount === 6) && 
+    (tower3.childElementCount === 6) && 
+    (tower4.childElementCount === 6) && 
+    (tower5.childElementCount === 6) && 
+    (tower6.childElementCount === 6) && 
+    (tower7.childElementCount === 6))
+    {
+      setTimeout(function(){alert("Tie Game. Press OK to Restart Game");}, 200);
+      setTimeout(function(){location.reload();}, 250);
+  }
+}

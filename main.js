@@ -6,7 +6,7 @@ let gameModel = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 1, 1, 1, 1, 0]
 ]
 
 let turn = "player1";
@@ -34,16 +34,16 @@ function playGame(event) {
 
     let columnIndex = Number(selectTower.id.slice(-1))
 
-    function updateGameboard(){
-      for(let row = gameModel.length - 1; row >= 0; row--){
-        if(gameModel[row][columnIndex] === 0){
-            gameModel[row][columnIndex] = piece;
-            break;
+    function updateGameboard() {
+      for (let row = gameModel.length - 1; row >= 0; row--) {
+        if (gameModel[row][columnIndex] === 0) {
+          gameModel[row][columnIndex] = "w";
+          break;
         }
       }
     }
     updateGameboard();
-    
+
     turn = "player2";
   }
   else if ((turn === "player2") && (selectTower.childElementCount < 6)) {
@@ -56,11 +56,11 @@ function playGame(event) {
 
     let columnIndex = Number(selectTower.id.slice(-1))
 
-    function updateGameboard(){
-      for(let row = gameModel.length - 1; row >= 0; row--){
-        if(gameModel[row][columnIndex] === 0){
-            gameModel[row][columnIndex] = piece;
-            break;
+    function updateGameboard() {
+      for (let row = gameModel.length - 1; row >= 0; row--) {
+        if (gameModel[row][columnIndex] === 0) {
+          gameModel[row][columnIndex] = "w";
+          break;
         }
       }
     }
@@ -69,8 +69,10 @@ function playGame(event) {
     turn = "player1";
   }
 
+  winVertical(gameModel);
   tieGame();
 }
+
 
 tower1.addEventListener("click", playGame);
 tower2.addEventListener("click", playGame);
@@ -80,48 +82,46 @@ tower5.addEventListener("click", playGame);
 tower6.addEventListener("click", playGame);
 tower7.addEventListener("click", playGame);
 
-function tieGame(){
-  if((tower1.childElementCount === 6) && 
-    (tower2.childElementCount === 6) && 
-    (tower3.childElementCount === 6) && 
-    (tower4.childElementCount === 6) && 
-    (tower5.childElementCount === 6) && 
-    (tower6.childElementCount === 6) && 
-    (tower7.childElementCount === 6))
-    {
-      setTimeout(function(){alert("Tie Game. Press OK to Restart Game");}, 200);
-      setTimeout(function(){location.reload();}, 250);
+function tieGame() {
+  if ((tower1.childElementCount === 6) &&
+    (tower2.childElementCount === 6) &&
+    (tower3.childElementCount === 6) &&
+    (tower4.childElementCount === 6) &&
+    (tower5.childElementCount === 6) &&
+    (tower6.childElementCount === 6) &&
+    (tower7.childElementCount === 6)) {
+    setTimeout(function () { alert("Tie Game. Press OK to Restart Game"); }, 200);
+    setTimeout(function () { location.reload(); }, 250);
   }
 }
 
 //Winning Game Conditions
 
-const winVertical = function(gameboard){
-  for(let row = 0; row < 3; row++){
-    for(let col = 0; col < gameboard[row].length; col++){
+const winVertical = function (gameboard) {
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < gameboard[row].length; col++) {
       //Same column, different row
-      if((gameboard[row][col] === gameboard[row + 1][col]) &&
+      if ((gameboard[row][col] === gameboard[row + 1][col]) &&
         (gameboard[row][col] === gameboard[row + 2][col]) &&
         (gameboard[row][col] === gameboard[row + 3][col]) &&
-        (gameboard[row][col] != 0)){
-          console.log("Winner - Four in a Row (Vertical)");
-        }
+        (gameboard[row][col] != 0)) {
+        console.log("Winner - Four in a Row (Vertical)");
+      }
     }
   }
   return 1;
 }
-winVertical(gameModel);
 
-const winHorizontal = function(gameboard){
-  for(let col = 0; col < 3; col++){
-    for(let row = 0; row < gameboard[col].length; row++){
+const winHorizontal = function (gameboard) {
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < gameboard[row].length; col++) {
       //Same row, different column
-      if((gameboard[col][row] === gameboard[col + 1][row]) &&
-        (gameboard[col][row] === gameboard[col + 2][row]) &&
-        (gameboard[col][row] === gameboard[col + 3][row]) &&
-        (gameboard[col][row] != 0)){
-          console.log("Winner - Four in a Row (Horizontal)");
-        }
+      if ((gameboard[row][col] === gameboard[row][col + 1]) &&
+        (gameboard[row][col] === gameboard[row][col + 2]) &&
+        (gameboard[row][col] === gameboard[row][col + 3]) &&
+        (gameboard[row][col] != 0)) {
+        console.log("Winner - Four in a Row (Horizontal)");
+      }
     }
   }
   return 1;
@@ -146,14 +146,4 @@ winHorizontal(gameModel);
 
 //Determine Game Winner
 
-// const gameWinner = function(board){
-//   const horz = winVertical(board);
 
-//   if(horz != 0){
-//     winner = horz;
-//   } else {
-//     winner = null
-//   }
-//   return winner;
-// }
-// gameWinner(gameModel);

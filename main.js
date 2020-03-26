@@ -38,7 +38,7 @@ function playGame(event) {
     function updateGameboard() {
       for (let row = gameModel.length - 1; row >= 0; row--) {
         if (gameModel[row][columnIndex] === 0) {
-          gameModel[row][columnIndex] = "w";
+          gameModel[row][columnIndex] = "1";
           break;
         }
       }
@@ -60,7 +60,7 @@ function playGame(event) {
     function updateGameboard() {
       for (let row = gameModel.length - 1; row >= 0; row--) {
         if (gameModel[row][columnIndex] === 0) {
-          gameModel[row][columnIndex] = "w";
+          gameModel[row][columnIndex] = "2";
           break;
         }
       }
@@ -73,7 +73,6 @@ function playGame(event) {
   winVertical(gameModel);
   tieGame();
 }
-
 
 tower1.addEventListener("click", playGame);
 tower2.addEventListener("click", playGame);
@@ -91,7 +90,7 @@ function tieGame() {
     (tower5.childElementCount === 6) &&
     (tower6.childElementCount === 6) &&
     (tower7.childElementCount === 6)) {
-    setTimeout(function () { alert("Tie Game. Press OK to Restart Game"); }, 200);
+    setTimeout(function () { alert("Tie Game! Press OK to Restart Game"); }, 200);
     setTimeout(function () { location.reload(); }, 250);
   }
 }
@@ -106,7 +105,7 @@ const winVertical = function (gameboard) {
         (gameboard[row][col] === gameboard[row + 2][col]) &&
         (gameboard[row][col] === gameboard[row + 3][col]) &&
         (gameboard[row][col] != 0)) {
-        setTimeout(function () { alert("Winner. Press OK to Restart Game"); }, 200);
+        setTimeout(function () { alert("Winner! Four in a Row! Press OK to Restart Game"); }, 200);
         setTimeout(function () { location.reload(); }, 250);
       }
     }

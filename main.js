@@ -1,12 +1,12 @@
 //Used Randy's Demo and Lesson: Nested Arrays to Help Guide Me With This Project
 
 let gameModel = [
-  [0, 0, 0, 0, 0, 0, 1],
-  [0, 0, 0, 0, 0, 1, 0],
-  [1, 0, 0, 0, 1, 0, 0],
-  [1, 0, 0, 1, 0, 0, 0],
-  [1, 0, 0, 0, 0, 0, 0],
-  [1, 0, 1, 1, 1, 1, 0]
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0]
 ]
 
 let turn = "player1";
@@ -31,6 +31,19 @@ function playGame(event) {
     let piece = document.createElement("div");
     piece.className = "diskBlack";
     selectTower.appendChild(piece);
+
+    let columnIndex = Number(selectTower.id.slice(-1))
+
+    function updateGameboard(){
+      for(let row=gameModel.length - 1; row >= 0; row--){
+        if(gameModel[row][columnIndex] === 0){
+            gameModel[row][columnIndex] = piece;
+            break;
+        }
+      }
+    }
+    updateGameboard();
+    
     turn = "player2";
   }
   else if ((turn === "player2") && (selectTower.childElementCount < 6)) {
@@ -40,8 +53,22 @@ function playGame(event) {
     let piece = document.createElement("div");
     piece.className = "diskRed";
     selectTower.appendChild(piece);
+
+    let columnIndex = Number(selectTower.id.slice(-1))
+
+    function updateGameboard(){
+      for(let row=gameModel.length - 1; row >= 0; row--){
+        if(gameModel[row][columnIndex] === 0){
+            gameModel[row][columnIndex] = piece;
+            break;
+        }
+      }
+    }
+    updateGameboard();
+
     turn = "player1";
   }
+
   tieGame();
 }
 
@@ -52,6 +79,16 @@ tower4.addEventListener("click", playGame);
 tower5.addEventListener("click", playGame);
 tower6.addEventListener("click", playGame);
 tower7.addEventListener("click", playGame);
+
+// function updateGameboard(){
+//   for(let row=gameModel.length - 1; row >= 0; row--){
+//     if(gameModel[row][col] === 0){
+//         gameModel[row][col] = disk;
+//         break;
+//     }
+//   }
+// }
+// updateGameboard();
 
 function tieGame(){
   if((tower1.childElementCount === 6) && 

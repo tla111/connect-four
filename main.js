@@ -1,11 +1,12 @@
+//Used Randy's Demo and Lesson: Nested Arrays to Help Guide Me With This Project
+
 let gameModel = [
   [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0]
+  [1, 0, 0, 0, 0, 0, 0],
+  [1, 0, 0, 0, 0, 0, 0],
+  [1, 0, 0, 0, 0, 0, 0],
+  [1, 0, 0, 0, 0, 0, 0],
+  [0, 0, 1, 1, 1, 1, 0]
 ]
 
 let turn = "player1";
@@ -20,7 +21,7 @@ let tower5 = document.querySelector("#col5");
 let tower6 = document.querySelector("#col6");
 let tower7 = document.querySelector("#col7");
 
-function insertDisk(event) {
+function playGame(event) {
   let selectTower = event.currentTarget;
 
   if ((turn === "player1") && (selectTower.childElementCount < 6)) {
@@ -44,13 +45,13 @@ function insertDisk(event) {
   tieGame();
 }
 
-tower1.addEventListener("click", insertDisk);
-tower2.addEventListener("click", insertDisk);
-tower3.addEventListener("click", insertDisk);
-tower4.addEventListener("click", insertDisk);
-tower5.addEventListener("click", insertDisk);
-tower6.addEventListener("click", insertDisk);
-tower7.addEventListener("click", insertDisk);
+tower1.addEventListener("click", playGame);
+tower2.addEventListener("click", playGame);
+tower3.addEventListener("click", playGame);
+tower4.addEventListener("click", playGame);
+tower5.addEventListener("click", playGame);
+tower6.addEventListener("click", playGame);
+tower7.addEventListener("click", playGame);
 
 function tieGame(){
   if((tower1.childElementCount === 6) && 
@@ -65,3 +66,35 @@ function tieGame(){
       setTimeout(function(){location.reload();}, 250);
   }
 }
+
+//Winning Game Conditions
+
+const winVertical = function(gameboard){
+  for(let row = 0; row < 3; row++){
+    for(let col = 0; col < gameboard[row].length; col++){
+      if((gameboard[row][col] === gameboard[row + 1][col]) &&
+        (gameboard[row][col] === gameboard[row + 2][col]) &&
+        (gameboard[row][col] === gameboard[row + 3][col]) &&
+        (gameboard[row][col] != 0)){
+          console.log("winner");
+        }
+    }
+  }
+  return 1
+}
+winVertical(gameModel);
+
+const winHorizontal = function(gameboard){
+  for(let col = 0; col < 3; col++){
+    for(let row = 0; row < gameboard[col].length; row++){
+      if((gameboard[col][row] === gameboard[col + 1][row]) &&
+        (gameboard[col][row] === gameboard[col + 2][row]) &&
+        (gameboard[col][row] === gameboard[col + 3][row]) &&
+        (gameboard[col][row] != 0)){
+          console.log("winner");
+        }
+    }
+  }
+  return 1
+}
+winHorizontal(gameModel);

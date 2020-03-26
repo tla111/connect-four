@@ -13,13 +13,13 @@ let turn = "player1";
 let playerOne = document.querySelector("#p1");
 let playerTwo = document.querySelector("#p2");
 
-let tower1 = document.querySelector("#col1");
-let tower2 = document.querySelector("#col2");
-let tower3 = document.querySelector("#col3");
-let tower4 = document.querySelector("#col4");
-let tower5 = document.querySelector("#col5");
-let tower6 = document.querySelector("#col6");
-let tower7 = document.querySelector("#col7");
+let tower1 = document.querySelector("#col0");
+let tower2 = document.querySelector("#col1");
+let tower3 = document.querySelector("#col2");
+let tower4 = document.querySelector("#col3");
+let tower5 = document.querySelector("#col4");
+let tower6 = document.querySelector("#col5");
+let tower7 = document.querySelector("#col6");
 
 function playGame(event) {
   let selectTower = event.currentTarget;
@@ -35,7 +35,7 @@ function playGame(event) {
     let columnIndex = Number(selectTower.id.slice(-1))
 
     function updateGameboard(){
-      for(let row=gameModel.length - 1; row >= 0; row--){
+      for(let row = gameModel.length - 1; row >= 0; row--){
         if(gameModel[row][columnIndex] === 0){
             gameModel[row][columnIndex] = piece;
             break;
@@ -57,7 +57,7 @@ function playGame(event) {
     let columnIndex = Number(selectTower.id.slice(-1))
 
     function updateGameboard(){
-      for(let row=gameModel.length - 1; row >= 0; row--){
+      for(let row = gameModel.length - 1; row >= 0; row--){
         if(gameModel[row][columnIndex] === 0){
             gameModel[row][columnIndex] = piece;
             break;
@@ -79,16 +79,6 @@ tower4.addEventListener("click", playGame);
 tower5.addEventListener("click", playGame);
 tower6.addEventListener("click", playGame);
 tower7.addEventListener("click", playGame);
-
-// function updateGameboard(){
-//   for(let row=gameModel.length - 1; row >= 0; row--){
-//     if(gameModel[row][col] === 0){
-//         gameModel[row][col] = disk;
-//         break;
-//     }
-//   }
-// }
-// updateGameboard();
 
 function tieGame(){
   if((tower1.childElementCount === 6) && 
@@ -118,7 +108,7 @@ const winVertical = function(gameboard){
         }
     }
   }
-  return 1
+  return 1;
 }
 winVertical(gameModel);
 
@@ -134,7 +124,7 @@ const winHorizontal = function(gameboard){
         }
     }
   }
-  return 1
+  return 1;
 }
 winHorizontal(gameModel);
 
@@ -154,3 +144,16 @@ winHorizontal(gameModel);
 // }
 // winDiagonalUpRight(gameModel);
 
+//Determine Game Winner
+
+// const gameWinner = function(board){
+//   const horz = winVertical(board);
+
+//   if(horz != 0){
+//     winner = horz;
+//   } else {
+//     winner = null
+//   }
+//   return winner;
+// }
+// gameWinner(gameModel);

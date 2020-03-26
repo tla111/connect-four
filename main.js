@@ -1,4 +1,5 @@
 //Used Randy's Demo and Lesson: Nested Arrays to Help Guide Me With This Project
+//Received help from Coach Arieahna
 
 let gameModel = [
   [0, 0, 0, 0, 0, 0, 0],
@@ -6,7 +7,7 @@ let gameModel = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 1, 1, 1, 1, 0]
+  [0, 0, 0, 0, 0, 0, 0]
 ]
 
 let turn = "player1";
@@ -42,7 +43,7 @@ function playGame(event) {
         }
       }
     }
-    updateGameboard();
+    updateGameboard();;
 
     turn = "player2";
   }
@@ -105,7 +106,8 @@ const winVertical = function (gameboard) {
         (gameboard[row][col] === gameboard[row + 2][col]) &&
         (gameboard[row][col] === gameboard[row + 3][col]) &&
         (gameboard[row][col] != 0)) {
-        console.log("Winner - Four in a Row (Vertical)");
+        setTimeout(function () { alert("Winner. Press OK to Restart Game"); }, 200);
+        setTimeout(function () { location.reload(); }, 250);
       }
     }
   }
@@ -113,13 +115,13 @@ const winVertical = function (gameboard) {
 }
 
 const winHorizontal = function (gameboard) {
-  for (let row = 0; row < 3; row++) {
-    for (let col = 0; col < gameboard[row].length; col++) {
+  for (let col = 0; col < 3; col++) {
+    for (let row = 0; row < gameboard[col].length; row++) {
       //Same row, different column
-      if ((gameboard[row][col] === gameboard[row][col + 1]) &&
-        (gameboard[row][col] === gameboard[row][col + 2]) &&
-        (gameboard[row][col] === gameboard[row][col + 3]) &&
-        (gameboard[row][col] != 0)) {
+      if ((gameboard[col][row] === gameboard[col + 1][row]) &&
+        (gameboard[col][row] === gameboard[col + 2][row]) &&
+        (gameboard[col][row] === gameboard[col + 3][row]) &&
+        (gameboard[col][row] != 0)) {
         console.log("Winner - Four in a Row (Horizontal)");
       }
     }
@@ -128,22 +130,18 @@ const winHorizontal = function (gameboard) {
 }
 winHorizontal(gameModel);
 
-// const winDiagonalUpRight = function(gameboard){
-//   for(let col = 0; col < 3; col++){
-//     for(let row = 0; row < gameboard[col].length; row++){
-//       //col + 1, col + 2
-//       if((gameboard[col][row] === gameboard[col + 1][row]) &&
-//         (gameboard[col][row] === gameboard[col + 2][row]) &&
-//         (gameboard[col][row] === gameboard[col + 3][row]) &&
-//         (gameboard[col][row] != 0)){
-//           console.log("Winner - Four in a Row (Diagonal Up Right)");
-//         }
-//     }
-//   }
-//   return 1
-// }
-// winDiagonalUpRight(gameModel);
-
-//Determine Game Winner
-
-
+const winDiagonalUpRight = function(gameboard){
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < gameboard[row].length; col++) {
+      //
+      if ((gameboard[row][col] === gameboard[row + 1][col + 1]) &&
+        (gameboard[row][col] === gameboard[row + 2][col + 2]) &&
+        (gameboard[row][col] === gameboard[row + 3][col + 3]) &&
+        (gameboard[row][col] != 0)) {
+        console.log("Winner - Four in a Row (Vertical)");
+      }
+    }
+  }
+  return 1;
+}
+winDiagonalUpRight(gameModel);

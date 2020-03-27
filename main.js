@@ -1,4 +1,4 @@
-//Used Randy's Demo and Lesson: Nested Arrays to Help Guide Me With This Project
+//Used Randy's Demo and Lesson: Nested Arrays to help guide me with this project
 //Received help from Coach Arieahna & Mike Boring
 
 let gameModel = [

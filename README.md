@@ -23,5 +23,5 @@ Development Plan
   B. Alert the players the game is tied when the board is filled with 42 game pieces
 
     - if(node.childElementCount === 6){alert("The colummn is full")} //Column on game board
-    - if(node.childElementCount === 0){alert("There is no more game pieces to use. Tie Game!")}
+    - if each column is full{alert("There is no more game pieces to use. Tie Game!")}
   

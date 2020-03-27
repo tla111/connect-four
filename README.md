@@ -11,14 +11,14 @@ Development Plan
 
   A. The column will stack the game pieces on top of each other one color after the other to toggle between player 1 and player 2
 
-  - :nth-child(odd) will create black game pieces for player 1
-  - :nth-child(even) will create red game pieces for player 2
+  - Create black game pieces for player 1
+  - Create red game pieces for player 2
 
 3. Construct the gameboard to check for win and tie results
 
   A. Alert the players that a player wins when they get four of their game pieces in a row vertically, horizontal, and diagonally
 
-    - if(node.childElementCount === 4){alert("You Win")}
+    - Create functions of winning conditions 
 
   B. Alert the players the game is tied when the board is filled with 42 game pieces
 

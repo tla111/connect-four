@@ -71,8 +71,10 @@ function playGame(event) {
     turn = "player1";
   }
 
-  // winVertical(gameModel);
-  // winHorizontal(gameModel);
+  winVertical(gameModel);
+  winHorizontal(gameModel);
+  winDiagonalUpRight(gameModel);
+  winDiagonalDownRight(gameModel);
   tieGame();
 }
 
@@ -134,36 +136,31 @@ const winHorizontal = function (gameboard) {
 const winDiagonalUpRight = function(gameboard){
   for (let row = 0; row < 3; row++) {
     for (let col = 0; col < gameboard[row].length; col++) {
-      //
+      //Start from the Top
       if ((gameboard[row][col] === gameboard[row + 1][col - 1]) &&
         (gameboard[row][col] === gameboard[row + 2][col - 2]) &&
         (gameboard[row][col] === gameboard[row + 3][col - 3]) &&
         (gameboard[row][col] != 0)) {
-          console.log("Diagonal Upright Win");
-        // setTimeout(function () { alert("Winner! Four in a Row Diagonal! Press OK to Restart Game"); }, 200);
-        // setTimeout(function () { location.reload(); }, 250);
+        setTimeout(function () { alert("Winner! Four in a Row Diagonal! Press OK to Restart Game"); }, 200);
+        setTimeout(function () { location.reload(); }, 250);
       }
     }
   }
   return 1;
 }
-winDiagonalUpRight(gameModel);
 
 const winDiagonalDownRight = function(gameboard){
   for (let row = 0; row < 3; row++) {
     for (let col = 0; col < gameboard[row].length; col++) {
-      //
+      //Start from the bottom
       if ((gameboard[row][col] === gameboard[row + 1][col + 1]) &&
         (gameboard[row][col] === gameboard[row + 2][col + 2]) &&
         (gameboard[row][col] === gameboard[row + 3][col + 3]) &&
         (gameboard[row][col] != 0)) {
-          console.log("Diagonal Downright Win");
-        // setTimeout(function () { alert("Winner! Four in a Row Diagonal! Press OK to Restart Game"); }, 200);
-        // setTimeout(function () { location.reload(); }, 250);
+        setTimeout(function () { alert("Winner! Four in a Row Diagonal! Press OK to Restart Game"); }, 200);
+        setTimeout(function () { location.reload(); }, 250);
       }
     }
   }
   return 1;
 }
-
-winDiagonalDownRight(gameModel);

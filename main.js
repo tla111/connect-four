@@ -4,10 +4,10 @@
 let gameModel = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 1, 0, 0, 0],
-  [0, 0, 0, 0, 1, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0],
-  [0, 0, 0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0]
 ]
 
 let turn = "player1";
@@ -73,7 +73,6 @@ function playGame(event) {
 
   // winVertical(gameModel);
   // winHorizontal(gameModel);
-  // winDiagonalDownRight(gameModel);
   tieGame();
 }
 
@@ -136,11 +135,11 @@ const winDiagonalUpRight = function(gameboard){
   for (let row = 0; row < 3; row++) {
     for (let col = 0; col < gameboard[row].length; col++) {
       //
-      if ((gameboard[row][col] === gameboard[row][col + 1]) &&
-        (gameboard[row][col] === gameboard[row][col + 2]) &&
-        (gameboard[row][col] === gameboard[row][col + 3]) &&
+      if ((gameboard[row][col] === gameboard[row + 1][col - 1]) &&
+        (gameboard[row][col] === gameboard[row + 2][col - 2]) &&
+        (gameboard[row][col] === gameboard[row + 3][col - 3]) &&
         (gameboard[row][col] != 0)) {
-          console.log("diagonal upright win");
+          console.log("Diagonal Upright Win");
         // setTimeout(function () { alert("Winner! Four in a Row Diagonal! Press OK to Restart Game"); }, 200);
         // setTimeout(function () { location.reload(); }, 250);
       }
@@ -158,7 +157,7 @@ const winDiagonalDownRight = function(gameboard){
         (gameboard[row][col] === gameboard[row + 2][col + 2]) &&
         (gameboard[row][col] === gameboard[row + 3][col + 3]) &&
         (gameboard[row][col] != 0)) {
-          console.log("diagonal downright win");
+          console.log("Diagonal Downright Win");
         // setTimeout(function () { alert("Winner! Four in a Row Diagonal! Press OK to Restart Game"); }, 200);
         // setTimeout(function () { location.reload(); }, 250);
       }

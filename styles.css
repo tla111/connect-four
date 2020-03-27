@@ -48,11 +48,11 @@
   flex-direction: column-reverse;
 }
 
-/* .square {
+.square {
   border: 1px solid black;
-  height: 98px;
-  width: 90px;
-} */
+  height: 100px;
+  width: 100px;
+}
 
 .playerTurn {
   /* border: 1px solid black; */
@@ -95,6 +95,10 @@
   height: 95px;
   width: 90px;
   margin: 1px;
+}
+
+.fill {
+  background-color: yellow;
 }
 
 .blank {

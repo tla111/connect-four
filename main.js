@@ -10,7 +10,7 @@ let gameModel = [
   [0, 0, 0, 0, 0, 0, 0]
 ]
 
-let turn = "player1";
+let turn = 1;
 let playerOne = document.querySelector("#p1");
 let playerTwo = document.querySelector("#p2");
 
@@ -22,54 +22,44 @@ let tower5 = document.querySelector("#col4");
 let tower6 = document.querySelector("#col5");
 let tower7 = document.querySelector("#col6");
 
-function playGame(event) {
-  let selectTower = event.currentTarget;
+function createTurn(){
+  if(turn === 1){
+    turn = 2
+  }else{
+    turn = 1;
+  }
+}
 
-  if ((turn === "player1") && (selectTower.childElementCount < 6)) {
+function playGame(event){
+  selectedColumn = event.currentTarget;
+
+  if(turn === 1){
     playerTwo.className = "playerTurn switch2";
     playerOne.className = "blank";
-    selectTower = event.currentTarget;
-  
-    let piece = document.createElement("div");
-    piece.className = "diskBlack";
-    selectTower.appendChild(piece);
-
-    let columnIndex = Number(selectTower.id.slice(-1))
-
-    function updateGameboard() {
-      for (let row = gameModel.length - 1; row >= 0; row--) {
-        if (gameModel[row][columnIndex] === 0) {
-          gameModel[row][columnIndex] = "1";
-          break;
-        }
-      }
-    }
-    updateGameboard();;
-
-    turn = "player2";
-  }
-  else if ((turn === "player2") && (selectTower.childElementCount < 6)) {
+  }else{
     playerOne.className = "playerTurn switch1";
     playerTwo.className = "blank";
-    selectTower = event.currentTarget;
-    let piece = document.createElement("div");
-    piece.className = "diskRed";
-    selectTower.appendChild(piece);
+  }
+  
+  piece = document.createElement("div");
+  piece.className = (turn === 1) ? "diskBlack" : "diskRed";
+  if(selectedColumn.childElementCount < 6){
+    selectedColumn.appendChild(piece);
+  }
 
-    let columnIndex = Number(selectTower.id.slice(-1))
+  let columnIndex = Number(selectedColumn.id.slice(-1))
 
-    function updateGameboard() {
-      for (let row = gameModel.length - 1; row >= 0; row--) {
-        if (gameModel[row][columnIndex] === 0) {
-          gameModel[row][columnIndex] = "2";
-          break;
-        }
+  function updateGameboard() {
+    for (let row = gameModel.length - 1; row >= 0; row--) {
+      if (gameModel[row][columnIndex] === 0) {
+        gameModel[row][columnIndex] = turn;
+        break;
       }
     }
-    updateGameboard();
-
-    turn = "player1";
   }
+  updateGameboard();
+
+  createTurn();
 
   winVertical(gameModel);
   winHorizontal(gameModel);
@@ -77,6 +67,7 @@ function playGame(event) {
   winDiagonalDownRight(gameModel);
   tieGame();
 }
+
 
 tower1.addEventListener("click", playGame);
 tower2.addEventListener("click", playGame);
@@ -136,7 +127,7 @@ const winHorizontal = function (gameboard) {
 const winDiagonalUpRight = function(gameboard){
   for (let row = 0; row < 3; row++) {
     for (let col = 0; col < gameboard[row].length; col++) {
-      //Start from the Top
+      //Start from the
       if ((gameboard[row][col] === gameboard[row + 1][col - 1]) &&
         (gameboard[row][col] === gameboard[row + 2][col - 2]) &&
         (gameboard[row][col] === gameboard[row + 3][col - 3]) &&
@@ -152,7 +143,7 @@ const winDiagonalUpRight = function(gameboard){
 const winDiagonalDownRight = function(gameboard){
   for (let row = 0; row < 3; row++) {
     for (let col = 0; col < gameboard[row].length; col++) {
-      //Start from the bottom
+      //Start from the 
       if ((gameboard[row][col] === gameboard[row + 1][col + 1]) &&
         (gameboard[row][col] === gameboard[row + 2][col + 2]) &&
         (gameboard[row][col] === gameboard[row + 3][col + 3]) &&

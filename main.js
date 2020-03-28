@@ -68,15 +68,6 @@ function playGame(event){
   tieGame();
 }
 
-
-tower1.addEventListener("click", playGame);
-tower2.addEventListener("click", playGame);
-tower3.addEventListener("click", playGame);
-tower4.addEventListener("click", playGame);
-tower5.addEventListener("click", playGame);
-tower6.addEventListener("click", playGame);
-tower7.addEventListener("click", playGame);
-
 function tieGame() {
   if ((tower1.childElementCount === 6) &&
     (tower2.childElementCount === 6) &&
@@ -155,3 +146,11 @@ const winDiagonalDownRight = function(gameboard){
   }
   return 1;
 }
+
+tower1.addEventListener("click", playGame);
+tower2.addEventListener("click", playGame);
+tower3.addEventListener("click", playGame);
+tower4.addEventListener("click", playGame);
+tower5.addEventListener("click", playGame);
+tower6.addEventListener("click", playGame);
+tower7.addEventListener("click", playGame);
